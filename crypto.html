@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <title>Cryptography</title>
+</head>
+<body>
+    <py-script>
+        def machine():
+    key = 'abcdefghijklmnopqrstuvwxyz !'
+    value = key[-1] + key[0:-1]
+
+    encryptDict = dict(zip(key, value))
+    decryptDict = dict(zip(value, key))
+
+    message = input("Please Enter Your Message :  ")
+    mode = input("Please Select The mode : Emcode(X)   or   Decode(Y):")
+
+    if mode.upper() == 'X':
+        newMessage = ''.join([encryptDict[letter]
+                            for letter in message.lower()])
+    elif mode.upper() == 'Y':
+        newMessage = ''.join([decryptDict[letter]
+                            for letter in message.lower()])
+    else:
+        print("Please Enter a Valid Option ? ")
+
+    return newMessage.capitalize()
+
+print(machine())
+    </py-script>
+</body>
+</html>
